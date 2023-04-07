@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:home_page/main.dart';
+
+import 'course_page.dart';
 
 class navigationBar extends StatelessWidget {
   const navigationBar({
@@ -7,6 +10,7 @@ class navigationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return Container(
       height: 55,
       width: 360,
@@ -18,39 +22,65 @@ class navigationBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Column(
-            children: [
-              Icon(
-                Icons.home,
-                size: 28,
-                color: Color.fromRGBO(243, 145, 46, 1),
+          Container(
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MyApp(),
+                  ),
+                );
+              },
+              child: Column(
+                children: [
+                  Icon(
+                    Icons.home,
+                    size: 28,
+                    color: Color.fromRGBO(243, 145, 46, 1),
+                  ),
+                  Text(
+                    'Home',
+                    style: TextStyle(
+                      color: Color.fromRGBO(243, 145, 46, 1),
+                      fontFamily: 'Open Sans',
+                      fontSize: 10,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
               ),
-              Text(
-                'Home',
-                style: TextStyle(
-                  color: Color.fromRGBO(243, 145, 46, 1),
-                  fontFamily: 'Open Sans',
-                  fontSize: 10,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ],
+            ),
           ),
-          Column(
-            children: [
-              Icon(
-                Icons.bar_chart_sharp,
-                size: 28,
+          Container(
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Course_Page(),
+                  ),
+                );
+              },
+              child: Column(
+                children: [
+                  Icon(
+                    Icons.bar_chart_sharp,
+                    size: 28,
+                    color: Color.fromRGBO(243, 145, 46, 1),
+                  ),
+                  Text(
+                    'Courses',
+                    style: TextStyle(
+                      fontFamily: 'Open Sans',
+                      fontSize: 10,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromRGBO(243, 145, 46, 1),
+                    ),
+                  ),
+                ],
               ),
-              Text(
-                'Courses',
-                style: TextStyle(
-                  fontFamily: 'Open Sans',
-                  fontSize: 10,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ],
+            ),
           ),
           Column(
             children: [
